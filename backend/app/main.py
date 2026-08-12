@@ -11,7 +11,8 @@ settings = get_settings()
 app = FastAPI(
     title="Clinical Ops Document Information Retrieval API",
     description=(
-        "Grounded, cited Q&A over clinical operations document corpus. Not a source of personal medical advice."
+        "Grounded, cited Q&A over clinical operations document corpus. "
+        "Not a source of personal medical advice."
     ),
     version="1.0.0",
 )

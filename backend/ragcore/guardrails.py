@@ -31,7 +31,11 @@ logger = logging.getLogger(__name__)
 # Anything not caught here falls through to the LLM classifier below,
 # rather than being assumed safe.
 _PERSONAL_MEDICAL_ADVICE_PATTERNS = [
-    r"\bshould i\s+(stop|start|take|skip|increase|decrease|lower|raise|double|halve)\b.{0,40}\b(my|this)\b",
+    (
+        r"\bshould i\s+"
+        r"(stop|start|take|skip|increase|decrease|lower|raise|double|halve)"
+        r"\b.{0,40}\b(my|this)\b"
+    ),
     r"\bis it (safe|ok|okay) for me to\b",
     r"\bcan i (stop|start|take|skip)\b.{0,40}\bmy\b",
     r"\bwhat dose should i\b",

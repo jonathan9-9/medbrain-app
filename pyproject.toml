@@ -1,0 +1,5 @@
+[tool.ruff.lint]
+select = ["E", "F", "B"]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends"]
