@@ -1,0 +1,137 @@
+[
+  {
+    "document_id": "cdc-adult-immunization-schedule-2025",
+    "filename": "cdc_adult_immunization_schedule_2025.html",
+    "title": "Adult Immunization Schedule by Age — Recommendations for Ages 19 Years or Older, 2025",
+    "publisher": "Centers for Disease Control and Prevention / Advisory Committee on Immunization Practices",
+    "source_url": "https://www.cdc.gov/vaccines/hcp/imz-schedules/adult-age.html",
+    "retrieved_at": "2026-08-11",
+    "category": "immunization"
+  },
+  {
+    "document_id": "cdc-adult-immunization-notes-2025",
+    "filename": "cdc_adult_immunization_notes_2025.html",
+    "title": "Adult Immunization Schedule Notes",
+    "publisher": "Centers for Disease Control and Prevention / Advisory Committee on Immunization Practices",
+    "source_url": "https://www.cdc.gov/vaccines/hcp/imz-schedules/adult-notes.html",
+    "retrieved_at": "2026-08-11",
+    "category": "immunization"
+  },
+  {
+    "document_id": "cdc-adult-immunization-appendix-2025",
+    "filename": "cdc_adult_immunization_appendix_2025.html",
+    "title": "Adult Immunization Schedule Appendix — Contraindications and Precautions",
+    "publisher": "Centers for Disease Control and Prevention / Advisory Committee on Immunization Practices",
+    "source_url": "https://www.cdc.gov/vaccines/hcp/imz-schedules/adult-appendix.html",
+    "retrieved_at": "2026-08-11",
+    "category": "immunization"
+  },
+  {
+    "document_id": "cdc-core-infection-prevention",
+    "filename": "cdc_core_infection_prevention.html",
+    "title": "CDC's Core Infection Prevention and Control Practices for Safe Healthcare Delivery in All Settings",
+    "publisher": "Centers for Disease Control and Prevention",
+    "source_url": "https://www.cdc.gov/infection-control/hcp/core-practices/index.html",
+    "retrieved_at": "2026-08-11",
+    "category": "infection-control"
+  },
+  {
+    "document_id": "cdc-standard-precautions",
+    "filename": "cdc_standard_precautions.html",
+    "title": "Standard Precautions for All Patient Care",
+    "publisher": "Centers for Disease Control and Prevention",
+    "source_url": "https://www.cdc.gov/infection-control/hcp/basics/standard-precautions.html",
+    "retrieved_at": "2026-08-11",
+    "category": "infection-control"
+  },
+  {
+    "document_id": "cdc-isolation-precautions",
+    "filename": "cdc_isolation_precautions.html",
+    "title": "Precautions to Prevent Transmission of Infectious Agents",
+    "publisher": "Centers for Disease Control and Prevention / Healthcare Infection Control Practices Advisory Committee",
+    "source_url": "https://www.cdc.gov/infection-control/hcp/isolation-precautions/precautions.html",
+    "retrieved_at": "2026-08-11",
+    "category": "infection-control"
+  },
+  {
+    "document_id": "cdc-hand-hygiene",
+    "filename": "cdc_hand_hygiene.html",
+    "title": "Hand Hygiene in Healthcare Settings",
+    "publisher": "Centers for Disease Control and Prevention",
+    "source_url": "https://www.cdc.gov/clean-hands/hcp/clinical-safety/index.html",
+    "retrieved_at": "2026-08-11",
+    "category": "infection-control"
+  },
+  {
+    "document_id": "uspstf-hypertension-screening",
+    "filename": "uspstf_hypertension_screening.html",
+    "title": "Hypertension in Adults: Screening",
+    "publisher": "U.S. Preventive Services Task Force",
+    "source_url": "https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hypertension-in-adults-screening",
+    "retrieved_at": "2026-08-11",
+    "category": "screening"
+  },
+  {
+    "document_id": "uspstf-colorectal-cancer-screening",
+    "filename": "uspstf_colorectal_cancer_screening.html",
+    "title": "Colorectal Cancer: Screening",
+    "publisher": "U.S. Preventive Services Task Force",
+    "source_url": "https://www.uspreventiveservicestaskforce.org/uspstf/document/ClinicalSummaryFinal/colorectal-cancer-screening",
+    "retrieved_at": "2026-08-11",
+    "category": "screening"
+  },
+  {
+    "document_id": "uspstf-breast-cancer-screening",
+    "filename": "uspstf_breast_cancer_screening.html",
+    "title": "Breast Cancer: Screening",
+    "publisher": "U.S. Preventive Services Task Force",
+    "source_url": "https://www.uspreventiveservicestaskforce.org/uspstf/document/ClinicalSummaryFinal/breast-cancer-screening",
+    "retrieved_at": "2026-08-11",
+    "category": "screening"
+  },
+  {
+    "document_id": "uspstf-osteoporosis-screening",
+    "filename": "uspstf_osteoporosis_screening.html",
+    "title": "Osteoporosis to Prevent Fractures: Screening",
+    "publisher": "U.S. Preventive Services Task Force",
+    "source_url": "https://www.uspreventiveservicestaskforce.org/uspstf/document/ClinicalSummaryFinal/osteoporosis-screening",
+    "retrieved_at": "2026-08-11",
+    "category": "screening"
+  },
+  {
+    "document_id": "dailymed-metformin",
+    "filename": "dailymed_metformin.html",
+    "title": "Metformin Hydrochloride — Drug Label",
+    "publisher": "DailyMed / U.S. Food and Drug Administration",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=45cc673a-e125-4d76-8013-89a089eb0ae9",
+    "retrieved_at": "2026-08-11",
+    "category": "medication"
+  },
+  {
+    "document_id": "dailymed-amoxicillin",
+    "filename": "dailymed_amoxicillin.html",
+    "title": "Amoxicillin — Drug Label",
+    "publisher": "DailyMed / U.S. Food and Drug Administration",
+    "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=de8990a6-f3b6-478f-acbe-eda961b6da4b",
+    "retrieved_at": "2026-08-11",
+    "category": "medication"
+  },
+  {
+    "document_id": "nih-hiv-initial-regimens",
+    "filename": "nih_hiv_initial_regimens.html",
+    "title": "What to Start: Initial Combination Antiretroviral Regimens for People With HIV",
+    "publisher": "National Institutes of Health / U.S. Department of Health and Human Services",
+    "source_url": "https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-arv/what-start-initial-combination-regimens",
+    "retrieved_at": "2026-08-11",
+    "category": "hiv-treatment"
+  },
+  {
+    "document_id": "cms-medicare-preventive-services",
+    "filename": "cms_medicare_preventive_services.html",
+    "title": "Medicare Preventive Services",
+    "publisher": "Centers for Medicare & Medicaid Services",
+    "source_url": "https://www.cms.gov/Medicare/Prevention/PrevntionGenInfo/medicare-preventive-services/MPS-QuickReferenceChart-1.html",
+    "retrieved_at": "2026-08-11",
+    "category": "billing-and-coverage"
+  }
+]
