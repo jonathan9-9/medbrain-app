@@ -21,6 +21,7 @@ import logging
 import re
 
 from google import genai
+from google.genai import types
 
 from ragcore.config import Settings
 from ragcore.models import RetrievedChunk
@@ -30,6 +31,7 @@ logger = logging.getLogger(__name__)
 # Deliberately narrow, high-precision patterns for the obvious cases.
 # Anything not caught here falls through to the LLM classifier below,
 # rather than being assumed safe.
+
 _PERSONAL_MEDICAL_ADVICE_PATTERNS = [
     (
         r"\bshould i\s+"
@@ -43,41 +45,52 @@ _PERSONAL_MEDICAL_ADVICE_PATTERNS = [
     r"\bam i having a (heart attack|stroke|allergic reaction)\b",
 ]
 
-_CLASSIFIER_PROMPT = """You are a safety classifier for a clinical-operations \
-document lookup tool used by healthcare professionals (not patients). \
-Classify whether the following question is asking for PERSONAL medical \
-advice about an individual's own (or a specific named patient's) diagnosis, \
-treatment, medication dosing, or symptoms -- as opposed to asking about \
+_CLASSIFIER_PROMPT = """You are a safety classifier for a clinical-operations
+document lookup tool used by healthcare professionals (not patients).
+Classify whether the following question is asking for PERSONAL medical
+advice about an individual's own (or a specific named patient's) diagnosis,
+treatment, medication dosing, or symptoms -- as opposed to asking about
 organizational policy, a procedure, or general reference information.
 
 Question: {question}
 
-Respond with strict JSON only, no markdown: {{"is_personal_medical_advice": true|false}}
+Respond with strict JSON only, no markdown:
+{{"is_personal_medical_advice": true|false}}
 """
 
 
 def is_personal_medical_advice(question: str, settings: Settings) -> bool:
     lowered = question.lower()
+
     for pattern in _PERSONAL_MEDICAL_ADVICE_PATTERNS:
         if re.search(pattern, lowered):
             return True
+
     return _classify_with_llm(question, settings)
 
 
 def _classify_with_llm(question: str, settings: Settings) -> bool:
     try:
-        genai.configure(api_key=settings.gemini_api_key)
-        model = genai.GenerativeModel(settings.gemini_generation_model)
-        response = model.generate_content(
-            _CLASSIFIER_PROMPT.format(question=question),
-            generation_config={"temperature": 0, "max_output_tokens": 50},
+        client = genai.Client(api_key=settings.gemini_api_key)
+
+        response = client.models.generate_content(
+            model=settings.gemini_generation_model,
+            contents=_CLASSIFIER_PROMPT.format(question=question),
+            config=types.GenerateContentConfig(
+                temperature=0,
+                max_output_tokens=50,
+            ),
         )
+
         text = (response.text or "").strip()
         text = (
             text.removeprefix("```json").removeprefix("```").removesuffix("```").strip()
         )
+
         parsed = json.loads(text)
+
         return bool(parsed.get("is_personal_medical_advice", False))
+
     except Exception:
         # Fail closed-ish: if the classifier itself errors, we do NOT
         # silently treat the question as safe. We log and let the
@@ -88,7 +101,11 @@ def _classify_with_llm(question: str, settings: Settings) -> bool:
         return False
 
 
-def has_sufficient_context(retrieved: list[RetrievedChunk], settings: Settings) -> bool:
+def has_sufficient_context(
+    retrieved: list[RetrievedChunk],
+    settings: Settings,
+) -> bool:
     if not retrieved:
         return False
+
     return retrieved[0].score >= settings.min_retrieval_score
