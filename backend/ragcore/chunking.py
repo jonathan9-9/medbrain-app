@@ -86,7 +86,9 @@ def _html_sections(content: Tag) -> list[tuple[str, str]]:
             and button.find_parent(list(_HEADING_TAGS)) is None
         ):
             label = _first_text(button)
-            button.replace_with(NavigableString(f"\nDetails: {label}\n" if label else ""))
+            button.replace_with(
+                NavigableString(f"\nDetails: {label}\n" if label else "")
+            )
 
     for heading in content.find_all(list(_HEADING_TAGS)):
         label = _first_text(heading)
@@ -132,11 +134,7 @@ def _sections_from_html_text(text: str) -> list[tuple[str, str]]:
                 current_parts = []
     append_current()
 
-    return [
-        (heading, "\n\n".join(parts))
-        for heading, parts in sections
-        if parts
-    ]
+    return [(heading, "\n\n".join(parts)) for heading, parts in sections if parts]
 
 
 def _clean_text(text: str) -> str:

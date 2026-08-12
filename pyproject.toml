@@ -3,3 +3,5 @@ select = ["E", "F", "B"]
 
 [tool.ruff.lint.flake8-bugbear]
 extend-immutable-calls = ["fastapi.Depends"]
+[tool.ruff.lint.per-file-ignores]
+"tests/test_chunking.py" = ["E501"]

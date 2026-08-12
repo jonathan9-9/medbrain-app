@@ -1,11 +1,12 @@
 from pathlib import Path
 
 import pytest
-
 from ragcore.chunking import parse_html_file
 
 
-def test_parse_html_file_extracts_main_content_and_heading_sections(tmp_path: Path) -> None:
+def test_parse_html_file_extracts_main_content_and_heading_sections(
+    tmp_path: Path,
+) -> None:
     path = tmp_path / "clinical_guidance.html"
     path.write_text(
         """
@@ -71,7 +72,8 @@ def test_parse_html_file_uses_the_document_title_not_svg_titles(tmp_path: Path) 
         <html>
           <head><title>Screening Guidance</title></head>
           <body>
-            <article><h2>Recommendation</h2><p>Offer evidence-based screening.</p></article>
+            <article><h2>Recommendation</h2><p>Offer evidence-based screening.</p>
+            </article>
             <svg><title>Print</title></svg>
           </body>
         </html>
@@ -84,7 +86,9 @@ def test_parse_html_file_uses_the_document_title_not_svg_titles(tmp_path: Path) 
     assert document.title == "Screening Guidance"
 
 
-def test_parse_html_file_prefers_named_content_over_earlier_articles(tmp_path: Path) -> None:
+def test_parse_html_file_prefers_named_content_over_earlier_articles(
+    tmp_path: Path,
+) -> None:
     path = tmp_path / "drug_label.html"
     path.write_text(
         """
@@ -119,11 +123,16 @@ def test_parse_html_file_preserves_tables_and_collapsed_content(tmp_path: Path) 
               <table>
                 <caption>Screening intervals</caption>
                 <thead><tr><th>Age group</th><th>Recommendation</th></tr></thead>
-                <tbody><tr><td>40 to 74</td><td>Screen every two years.</td></tr></tbody>
+                <tbody><tr><td>40 to 74</td><td>Screen every two years.
+                </td></tr></tbody>
               </table>
-              <details><summary>Implementation notes</summary><p>Discuss risks and benefits.</p></details>
+              <details><summary>Implementation notes</summary><p>Discuss risks
+              and benefits.
+              </p>
+              </details>
               <button data-bs-toggle="collapse">Exceptions</button>
-              <div class="collapse"><p>Use clinical judgment for higher-risk patients.</p></div>
+              <div class="collapse"><p>Use clinical judgment for higher-risk patients.
+              </p></div>
               <select><option>Annual</option><option>Every two years</option></select>
             </main>
           </body>
@@ -137,8 +146,8 @@ def test_parse_html_file_preserves_tables_and_collapsed_content(tmp_path: Path) 
     assert document.sections == [
         (
             "Recommendations",
-                "Table: Screening intervals\n"
-                "\nAge group: 40 to 74 | Recommendation: Screen every two years.\n\n"
+            "Table: Screening intervals\n"
+            "\nAge group: 40 to 74 | Recommendation: Screen every two years.\n\n"
             "Details: Implementation notes\n\n"
             "Discuss risks and benefits.\n\n"
             "Details: Exceptions\n\n"

@@ -3,6 +3,7 @@
 can never silently diverge between what was indexed and what the API
 expects back.
 """
+
 from __future__ import annotations
 
 from enum import Enum
