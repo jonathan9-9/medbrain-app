@@ -3,6 +3,7 @@ environment exactly once, here, so nothing else in the codebase reaches
 into os.environ directly. This is what keeps API keys server-side and
 makes the app configurable per-deployment without code changes.
 """
+
 from __future__ import annotations
 
 from functools import lru_cache
