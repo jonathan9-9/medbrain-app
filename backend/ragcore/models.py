@@ -63,5 +63,5 @@ class ChatRequest(BaseModel):
 class ChatMessageEvent(BaseModel):
     """One SSE event. `type` tells the frontend how to render it."""
 
-    type: str  # "token" | "citations" | "status" | "error" | "done"
-    data: str | list[Citation] | None = None
+    type: str  # "token" | "citations" | "status" | "error" | "done" | "retrieval"
+    data: str | list[Citation] | list[str] | None = None

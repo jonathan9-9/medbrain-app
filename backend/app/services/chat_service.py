@@ -57,6 +57,10 @@ class ChatService:
         retrieved = self._store.query(
             query_embedding, top_k=self._settings.retrieval_top_k
         )
+        yield ChatMessageEvent(
+            type="retrieval",
+            data=[chunk.metadata.doc_id for chunk in retrieved],
+        )
 
         # Gate 2: retrieval sufficiency. If the best match is weak, don't
         # let the model try anyway -- return a fixed, honest response.
