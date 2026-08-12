@@ -12,7 +12,8 @@ import logging
 from dataclasses import dataclass
 from pathlib import Path
 
-from ingestion.manifest import Manifest, file_hash
+from ragcore.ingestion.manifest import Manifest, file_hash
+from ragcore.ingestion.sources import html_source_files
 from ragcore.chunking import chunk_document, parse_html_file
 from ragcore.config import Settings
 from ragcore.embeddings import EmbeddingClient
@@ -40,7 +41,7 @@ def run(
     manifest = Manifest(manifest_path)
     result = IngestionResult()
 
-    source_files = sorted(corpus_dir.glob("*.html"))
+    source_files = html_source_files(corpus_dir)
     seen_paths: set[str] = set()
 
     embedder = None

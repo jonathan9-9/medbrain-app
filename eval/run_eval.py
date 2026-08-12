@@ -4,7 +4,7 @@ and answer quality, prints a console report, and writes eval/report.json.
 
 Usage: `make eval` (see Makefile) or `python -m eval.run_eval`
 Requires real GEMINI_API_KEY / PINECONE_API_KEY in the environment and an
-already-ingested corpus (`python -m ingestion.run` first).
+already-ingested corpus (`python -m ragcore.ingestion.run` first).
 """
 
 from __future__ import annotations

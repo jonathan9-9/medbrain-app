@@ -42,7 +42,9 @@ class Settings(BaseSettings):
 
     # --- Corpus / manifest paths ---
     corpus_dir: str = Field(default="corpus/raw")
-    manifest_path: str = Field(default="ingestion/.manifest/ingestion_manifest.json")
+    manifest_path: str = Field(
+        default="backend/ragcore/ingestion/.manifest/ingestion_manifest.json"
+    )
 
     # --- CORS ---
     allowed_origins: str = Field(default="http://localhost:3000")
