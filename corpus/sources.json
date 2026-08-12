@@ -99,13 +99,13 @@
     "category": "screening"
   },
   {
-    "document_id": "dailymed-metformin",
-    "filename": "dailymed_metformin.html",
-    "title": "Metformin Hydrochloride — Drug Label",
-    "publisher": "DailyMed / U.S. Food and Drug Administration",
-    "source_url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=45cc673a-e125-4d76-8013-89a089eb0ae9",
-    "retrieved_at": "2026-08-11",
-    "category": "medication"
+    "document_id": "medlineplus-common-cold",
+    "filename": "medlineplus_common_cold.html",
+    "title": "Common Cold",
+    "publisher": "MedlinePlus / National Library of Medicine / National Institutes of Health",
+    "source_url": "https://medlineplus.gov/commoncold.html",
+    "retrieved_at": "2026-08-12",
+    "category": "health_information"
   },
   {
     "document_id": "dailymed-amoxicillin",

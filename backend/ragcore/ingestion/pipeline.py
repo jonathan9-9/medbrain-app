@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ingestion.manifest import Manifest, file_hash
-from ragcore.chunking import chunk_document, parse_markdown_file
+from ragcore.chunking import chunk_document, parse_html_file
 from ragcore.config import Settings
 from ragcore.embeddings import EmbeddingClient
 from ragcore.vectorstore import VectorStore
@@ -62,7 +62,7 @@ def run(
             continue
 
         logger.info("INGEST: %s", path.name)
-        doc = parse_markdown_file(path)
+        doc = parse_html_file(path)
         chunks = chunk_document(
             doc, settings.max_chunk_tokens, settings.chunk_overlap_tokens
         )

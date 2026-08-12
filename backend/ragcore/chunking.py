@@ -1,12 +1,9 @@
-"""Parsing + chunking for the corpus.
+"""HTML parsing and section-aware chunking for the curated health corpus.
 
-Design choice (see DESIGN.md section 3): the corpus is organized SOPs /
-policies / patient-education handouts that already have meaningful
-section structure (YAML frontmatter + "## Section N. ..." headers). We
-chunk on that structure first, and only fall back to fixed-size splitting
-within a section if a single section is too large to embed as one chunk.
-This keeps a chunk's meaning intact and keeps citations pointing at real,
-recognizable sections instead of arbitrary token windows.
+Documents are hand-curated HTML pages from authoritative health sources.
+Their heading structure provides the primary chunk boundaries; only oversized
+sections fall back to fixed-size splitting. This keeps citations attached to
+recognizable document sections instead of arbitrary token windows.
 """
 
 from __future__ import annotations
@@ -16,12 +13,12 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
-import yaml
+from bs4 import BeautifulSoup, NavigableString, Tag
 
 from ragcore.models import Chunk, ChunkMetadata
 
-_FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n(.*)$", re.DOTALL)
-_HEADER_RE = re.compile(r"^##\s+(.*)$", re.MULTILINE)
+_HEADING_TAGS = {f"h{level}" for level in range(1, 7)}
+_HEADING_MARKER_RE = re.compile(r"^\[\[HEADING:(\d)\]\]\s*(.*)$")
 
 # Rough tokens-per-word heuristic; avoids pulling in a tokenizer dependency
 # for a small, English-only corpus. If the corpus grows or goes
@@ -38,33 +35,148 @@ class ParsedDocument:
     sections: list[tuple[str, str]]  # (heading, body_text)
 
 
-def parse_markdown_file(path: Path) -> ParsedDocument:
-    raw = path.read_text(encoding="utf-8")
-    match = _FRONTMATTER_RE.match(raw)
-    if not match:
-        raise ValueError(f"{path} is missing YAML frontmatter")
-    front = yaml.safe_load(match.group(1))
-    body = match.group(2).strip()
+def parse_html_file(path: Path) -> ParsedDocument:
+    """Parse a curated HTML document into title and heading-based sections."""
+    if path.suffix.lower() != ".html":
+        raise ValueError(f"Expected an HTML file, got {path}")
 
-    # Split body into (heading, text) pairs on "## Section ..." headers.
-    headers = list(_HEADER_RE.finditer(body))
-    sections: list[tuple[str, str]] = []
-    if not headers:
-        sections.append(("Document", body))
-    else:
-        for i, h in enumerate(headers):
-            heading = h.group(1).strip()
-            start = h.end()
-            end = headers[i + 1].start() if i + 1 < len(headers) else len(body)
-            sections.append((heading, body[start:end].strip()))
+    soup = BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
+    content = _content_root(soup)
+    if content is None:
+        raise ValueError(f"{path} does not contain extractable document content")
+
+    title = _first_text(content.find("h1")) or _first_text(soup.title)
+    sections = _html_sections(content)
+    if not sections:
+        raise ValueError(f"{path} does not contain extractable document content")
 
     return ParsedDocument(
-        doc_id=front["doc_id"],
-        title=front["title"],
-        category=front.get("category", "Uncategorized"),
+        doc_id=_document_id(path),
+        title=title or path.stem.replace("_", " "),
+        category="Health guidance",
         source_path=str(path),
         sections=sections,
     )
+
+
+def _content_root(soup: BeautifulSoup) -> Tag | None:
+    return (
+        soup.find("main")
+        or soup.find(id="drug-information")
+        or soup.find("article")
+        or soup.body
+    )
+
+
+def _html_sections(content: Tag) -> list[tuple[str, str]]:
+    for element in content.find_all(["script", "style", "noscript", "svg", "template"]):
+        element.decompose()
+    for table in reversed(content.find_all("table")):
+        table.replace_with(NavigableString(f"\n{_render_table(table)}\n"))
+    for summary in content.find_all("summary"):
+        label = _first_text(summary)
+        summary.replace_with(NavigableString(f"\nDetails: {label}\n" if label else ""))
+    for select in content.find_all("select"):
+        options = _unique(_first_text(option) for option in select.find_all("option"))
+        text = f"\nOptions: {'; '.join(options)}\n" if options else ""
+        select.replace_with(NavigableString(text))
+    for button in content.find_all("button"):
+        if (
+            button.get("data-bs-toggle") in {"collapse", "dropdown"}
+            and button.find_parent(list(_HEADING_TAGS)) is None
+        ):
+            label = _first_text(button)
+            button.replace_with(NavigableString(f"\nDetails: {label}\n" if label else ""))
+
+    for heading in content.find_all(list(_HEADING_TAGS)):
+        label = _first_text(heading)
+        level = int(heading.name[1])
+        marker = f"\n[[HEADING:{level}]] {label}\n" if label else ""
+        heading.replace_with(NavigableString(marker))
+
+    return _sections_from_html_text(content.get_text("\n"))
+
+
+def _sections_from_html_text(text: str) -> list[tuple[str, str]]:
+    sections: list[tuple[str, list[str]]] = []
+    current_heading = "Document"
+    current_parts: list[str] = []
+    saw_primary_section = False
+
+    def append_current() -> None:
+        if current_parts:
+            sections.append((current_heading, current_parts.copy()))
+
+    for line in (_clean_text(line) for line in text.splitlines()):
+        if not line:
+            continue
+        heading = _HEADING_MARKER_RE.match(line)
+        if heading is None:
+            current_parts.append(line)
+            continue
+        level = int(heading.group(1))
+        label = heading.group(2)
+        if level == 1:
+            continue
+        if level == 2:
+            append_current()
+            current_heading = label
+            current_parts = []
+            saw_primary_section = True
+        else:
+            if saw_primary_section:
+                current_parts.append(label)
+            else:
+                append_current()
+                current_heading = label
+                current_parts = []
+    append_current()
+
+    return [
+        (heading, "\n\n".join(parts))
+        for heading, parts in sections
+        if parts
+    ]
+
+
+def _clean_text(text: str) -> str:
+    return " ".join(text.split())
+
+
+def _first_text(element: Tag | None) -> str:
+    return _clean_text(element.get_text(" ", strip=True)) if element else ""
+
+
+def _render_table(table: Tag) -> str:
+    caption = _first_text(table.find("caption"))
+    lines = [f"Table: {caption}" if caption else "Table"]
+    rows = table.find_all("tr")
+    header_row = next((row for row in rows if row.find("th")), None)
+    headers = _table_cells(header_row) if header_row else []
+    for row in rows:
+        if row is header_row:
+            continue
+        cells = []
+        for index, cell in enumerate(_table_cells(row)):
+            header = headers[index] if index < len(headers) else f"Column {index + 1}"
+            cells.append(f"{header}: {cell}")
+        if cells:
+            lines.append(" | ".join(cells))
+    return "\n".join(lines) if len(lines) > 1 else ""
+
+
+def _table_cells(row: Tag | None) -> list[str]:
+    if row is None:
+        return []
+    return [_first_text(cell) for cell in row.find_all(["td", "th"], recursive=False)]
+
+
+def _unique(values: list[str]) -> list[str]:
+    return list(dict.fromkeys(value for value in values if value))
+
+
+def _document_id(path: Path) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", path.stem.lower()).strip("-")
 
 
 def _approx_tokens(text: str) -> int:
