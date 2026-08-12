@@ -1,11 +1,3 @@
-"""Thin wrapper around Google's embedding API.
-
-Both the ingestion pipeline (embedding chunks) and the backend
-(embedding the user's question at query time) go through this single
-module, so the two can never end up using different models/params and
-silently degrading retrieval quality.
-"""
-
 from __future__ import annotations
 
 import logging
@@ -26,6 +18,7 @@ class EmbeddingClient:
     def __init__(self, settings: Settings):
         self._client = genai.Client(api_key=settings.gemini_api_key)
         self._model = settings.gemini_embedding_model
+        self._dimension = settings.embedding_dimension
 
     def embed_document(self, text: str) -> list[float]:
         return self._embed(text, task_type="RETRIEVAL_DOCUMENT")
@@ -43,6 +36,7 @@ class EmbeddingClient:
                     contents=text,
                     config=types.EmbedContentConfig(
                         task_type=task_type,
+                        output_dimensionality=self._dimension,
                     ),
                 )
 
@@ -54,10 +48,17 @@ class EmbeddingClient:
                 if values is None:
                     raise ValueError("Gemini returned an embedding with no values")
 
+                if len(values) != self._dimension:
+                    raise ValueError(
+                        f"Expected {self._dimension}-dimensional embedding, "
+                        f"got {len(values)} dimensions"
+                    )
+
                 return values
 
-            except Exception as exc:  # noqa: BLE001 - broad by design, see retry loop
+            except Exception as exc:  # noqa: BLE001
                 last_err = exc
+
                 logger.warning(
                     "embedding attempt %s/%s failed: %s",
                     attempt,

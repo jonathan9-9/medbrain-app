@@ -20,15 +20,15 @@ class Settings(BaseSettings):
     pinecone_api_key: str = Field(default="")
 
     # --- Pinecone ---
-    pinecone_index_name: str = Field(default="clinical-ops-kb")
+    pinecone_index_name: str = Field(default="medbrain-index")
     pinecone_cloud: str = Field(default="aws")
     pinecone_region: str = Field(default="us-east-1")
-    # text-embedding-004 outputs 768-dim vectors.
-    embedding_dimension: int = Field(default=768)
+    # text-embedding-001 outputs 1536-dim vectors.
+    embedding_dimension: int = Field(default=1536)
 
     # --- Models ---
     gemini_generation_model: str = Field(default="gemini-2.0-flash")
-    gemini_embedding_model: str = Field(default="text-embedding-004")
+    gemini_embedding_model: str = Field(default="text-embedding-001")
 
     # --- Chunking ---
     max_chunk_tokens: int = Field(default=700)
