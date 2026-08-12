@@ -4,12 +4,13 @@ tier). Both the ingestion pipeline (embedding chunks) and the backend
 module, so the two can never end up using different models/params and
 silently degrading retrieval quality.
 """
+
 from __future__ import annotations
 
 import logging
 import time
 
-import google.generativeai as genai
+from google import genai
 
 from ragcore.config import Settings
 

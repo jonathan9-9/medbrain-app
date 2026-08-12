@@ -20,7 +20,7 @@ import json
 import logging
 import re
 
-import google.generativeai as genai
+from google import genai
 
 from ragcore.config import Settings
 from ragcore.models import RetrievedChunk

@@ -2,11 +2,12 @@
 the backend and eval harness can both use it (and so it can be mocked in
 tests without touching the network).
 """
+
 from __future__ import annotations
 
 from collections.abc import Iterator
 
-import google.generativeai as genai
+from google import genai
 
 from ragcore.config import Settings
 

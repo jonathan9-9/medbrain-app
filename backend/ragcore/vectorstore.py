@@ -6,6 +6,7 @@ idempotent (same content -> same id -> overwrite, not a duplicate).
 from __future__ import annotations
 
 import logging
+from typing import Any
 
 from pinecone import Pinecone, ServerlessSpec
 
@@ -76,5 +77,5 @@ class VectorStore:
             )
         return retrieved
 
-    def stats(self) -> dict:
+    def stats(self) -> Any:
         return self._index.describe_index_stats()
