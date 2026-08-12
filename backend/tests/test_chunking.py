@@ -123,16 +123,12 @@ def test_parse_html_file_preserves_tables_and_collapsed_content(tmp_path: Path) 
               <table>
                 <caption>Screening intervals</caption>
                 <thead><tr><th>Age group</th><th>Recommendation</th></tr></thead>
-                <tbody><tr><td>40 to 74</td><td>Screen every two years.
-                </td></tr></tbody>
+                <tbody><tr><td>40 to 74</td><td>Screen every two years.</td></tr></tbody>
               </table>
-              <details><summary>Implementation notes</summary><p>Discuss risks
-              and benefits.
-              </p>
+              <details><summary>Implementation notes</summary><p>Discuss risks and benefits.</p>
               </details>
               <button data-bs-toggle="collapse">Exceptions</button>
-              <div class="collapse"><p>Use clinical judgment for higher-risk patients.
-              </p></div>
+              <div class="collapse"><p>Use clinical judgment for higher-risk patients.</p></div>
               <select><option>Annual</option><option>Every two years</option></select>
             </main>
           </body>
