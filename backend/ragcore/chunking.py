@@ -13,7 +13,7 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
-from bs4 import BeautifulSoup, NavigableString, Tag
+from bs4 import BeautifulSoup, NavigableString, PageElement, Tag
 
 from ragcore.models import Chunk, ChunkMetadata
 
@@ -60,12 +60,15 @@ def parse_html_file(path: Path) -> ParsedDocument:
 
 
 def _content_root(soup: BeautifulSoup) -> Tag | None:
-    return (
-        soup.find("main")
-        or soup.find(id="drug-information")
-        or soup.find("article")
-        or soup.body
-    )
+    for element in (
+        soup.find("main"),
+        soup.find(id="drug-information"),
+        soup.find("article"),
+        soup.body,
+    ):
+        if isinstance(element, Tag):
+            return element
+    return None
 
 
 def _html_sections(content: Tag) -> list[tuple[str, str]]:
@@ -77,7 +80,7 @@ def _html_sections(content: Tag) -> list[tuple[str, str]]:
         label = _first_text(summary)
         summary.replace_with(NavigableString(f"\nDetails: {label}\n" if label else ""))
     for select in content.find_all("select"):
-        options = _unique(_first_text(option) for option in select.find_all("option"))
+        options = _unique([_first_text(option) for option in select.find_all("option")])
         text = f"\nOptions: {'; '.join(options)}\n" if options else ""
         select.replace_with(NavigableString(text))
     for button in content.find_all("button"):
@@ -141,8 +144,12 @@ def _clean_text(text: str) -> str:
     return " ".join(text.split())
 
 
-def _first_text(element: Tag | None) -> str:
-    return _clean_text(element.get_text(" ", strip=True)) if element else ""
+def _first_text(element: PageElement | None) -> str:
+    if element is None:
+        return ""
+    if isinstance(element, NavigableString):
+        return _clean_text(str(element))
+    return _clean_text(element.get_text(" ", strip=True))
 
 
 def _render_table(table: Tag) -> str:
