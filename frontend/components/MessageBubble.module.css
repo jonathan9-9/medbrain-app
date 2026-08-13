@@ -1,0 +1,54 @@
+.message {
+  padding: 24px 0;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 10px;
+}
+
+.role {
+  color: var(--primary);
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.content {
+  max-width: 760px;
+
+  color: var(--ink);
+
+  font-size: 15px;
+  line-height: 1.7;
+
+  white-space: pre-wrap;
+}
+
+.user .content {
+  color: #34423e;
+}
+
+.assistant .content {
+  color: var(--ink);
+}
+
+.waiting {
+  color: #71807b;
+  font-style: italic;
+}
+
+.citations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 18px;
+}

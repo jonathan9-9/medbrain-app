@@ -1,0 +1,38 @@
+.indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.answered {
+  color: var(--primary);
+}
+
+.unanswerable {
+  color: var(--warn-ink);
+}
+
+.unanswerable .dot {
+  background: var(--warn-ink);
+}
+
+.refused_medical_advice {
+  color: var(--danger-ink);
+}
+
+.refused_medical_advice .dot {
+  background: var(--danger-ink);
+}
