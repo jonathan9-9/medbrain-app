@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   backend:
+    name: Backend
     runs-on: ubuntu-latest
 
     steps:
@@ -14,9 +15,12 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install dependencies
+      - name: Install backend dependencies
         working-directory: backend
-        run: pip install -r requirements.txt
+        run: python -m pip install -r requirements.txt
+
+      - name: Install test tooling
+        run: python -m pip install pytest mypy ruff
 
       - name: Lint
         working-directory: backend
@@ -26,6 +30,55 @@ jobs:
         working-directory: backend
         run: mypy .
 
-      - name: Test
+      - name: Backend tests
         working-directory: backend
         run: pytest
+
+  eval-tests:
+    name: Eval Unit Tests
+    runs-on: ubuntu-latest
+    needs: backend
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+
+      - name: Install backend dependencies
+        run: python -m pip install -r backend/requirements.txt
+
+      - name: Install test tooling
+        run: python -m pip install pytest
+
+      - name: Eval tests
+        run: pytest eval/tests
+
+  frontend:
+    name: Frontend
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Tests
+        run: npm test
