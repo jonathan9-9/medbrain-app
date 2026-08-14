@@ -46,3 +46,21 @@ class GenerationClient:
         )
 
         return response.text or ""
+
+    def generate_structured(
+        self,
+        prompt: str,
+        response_schema: type,
+    ) -> str:
+        response = self._client.models.generate_content(
+            model=self._model,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                temperature=0,
+                max_output_tokens=256,
+                response_mime_type="application/json",
+                response_schema=response_schema,
+            ),
+        )
+
+        return response.text or ""

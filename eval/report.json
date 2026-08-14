@@ -1,0 +1,475 @@
+{
+  "summary": {
+    "total_cases": 15,
+    "evaluated_cases": 3,
+    "error_count": 12,
+    "overall_status_accuracy": 1.0,
+    "overall_mrr": 1.0,
+    "judged_case_count": 0,
+    "judged_case_ids": [],
+    "categories": [
+      {
+        "category": "medical_advice_refusal",
+        "n": 2,
+        "evaluated_n": 0,
+        "error_count": 2,
+        "status_accuracy": null,
+        "hit_rate": null,
+        "partial_hit_rate": null,
+        "mrr": null,
+        "avg_groundedness": null,
+        "avg_correctness": null
+      },
+      {
+        "category": "multi_doc_synthesis",
+        "n": 2,
+        "evaluated_n": 0,
+        "error_count": 2,
+        "status_accuracy": null,
+        "hit_rate": null,
+        "partial_hit_rate": null,
+        "mrr": null,
+        "avg_groundedness": null,
+        "avg_correctness": null
+      },
+      {
+        "category": "standard",
+        "n": 8,
+        "evaluated_n": 2,
+        "error_count": 6,
+        "status_accuracy": 1.0,
+        "hit_rate": 1.0,
+        "partial_hit_rate": 1.0,
+        "mrr": 1.0,
+        "avg_groundedness": null,
+        "avg_correctness": null
+      },
+      {
+        "category": "unanswerable",
+        "n": 3,
+        "evaluated_n": 1,
+        "error_count": 2,
+        "status_accuracy": 1.0,
+        "hit_rate": null,
+        "partial_hit_rate": null,
+        "mrr": null,
+        "avg_groundedness": null,
+        "avg_correctness": null
+      }
+    ],
+    "failures": [],
+    "errors": [
+      "q03",
+      "q04",
+      "q05",
+      "q06",
+      "q07",
+      "q08",
+      "q11",
+      "q12",
+      "q14",
+      "q15",
+      "q17",
+      "q18"
+    ]
+  },
+  "cases": [
+    {
+      "id": "q01",
+      "category": "standard",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_correct": true,
+      "evaluation_error": false,
+      "error": null,
+      "retrieved_doc_ids": [
+        "cdc-standard-precautions",
+        "cdc-isolation-precautions",
+        "cdc-isolation-precautions",
+        "cdc-standard-precautions",
+        "cdc-core-infection-prevention",
+        "cdc-standard-precautions"
+      ],
+      "expected_doc_ids": [
+        "cdc-standard-precautions"
+      ],
+      "hit": true,
+      "partial_hit": true,
+      "reciprocal_rank": 1.0,
+      "has_citations": true,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": "judge_error: 1 validation error for JudgeResult\n  Invalid JSON: expected value at line 1 column 1 [type=json_invalid, input_value='Here is the JSON re', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/json_invalid"
+    },
+    {
+      "id": "q02",
+      "category": "standard",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_correct": true,
+      "evaluation_error": false,
+      "error": null,
+      "retrieved_doc_ids": [
+        "cdc-hand-hygiene",
+        "cdc-standard-precautions",
+        "cdc-core-infection-prevention",
+        "cdc-hand-hygiene",
+        "cdc-hand-hygiene",
+        "cdc-hand-hygiene"
+      ],
+      "expected_doc_ids": [
+        "cdc-hand-hygiene"
+      ],
+      "hit": true,
+      "partial_hit": true,
+      "reciprocal_rank": 1.0,
+      "has_citations": true,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    },
+    {
+      "id": "q03",
+      "category": "standard",
+      "expected_status": "answered",
+      "actual_status": null,
+      "status_correct": null,
+      "evaluation_error": true,
+      "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 56.472449787s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '56s'}]}}",
+      "retrieved_doc_ids": [
+        "cdc-core-infection-prevention",
+        "cdc-standard-precautions",
+        "cdc-hand-hygiene",
+        "cdc-isolation-precautions",
+        "cdc-core-infection-prevention",
+        "cdc-core-infection-prevention"
+      ],
+      "expected_doc_ids": [
+        "cdc-standard-precautions"
+      ],
+      "hit": null,
+      "partial_hit": null,
+      "reciprocal_rank": null,
+      "has_citations": false,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    },
+    {
+      "id": "q04",
+      "category": "standard",
+      "expected_status": "answered",
+      "actual_status": null,
+      "status_correct": null,
+      "evaluation_error": true,
+      "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 55.934150056s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '55s'}]}}",
+      "retrieved_doc_ids": [
+        "cdc-isolation-precautions",
+        "cdc-isolation-precautions",
+        "cdc-isolation-precautions",
+        "cdc-isolation-precautions",
+        "cdc-isolation-precautions",
+        "cdc-isolation-precautions"
+      ],
+      "expected_doc_ids": [
+        "cdc-isolation-precautions"
+      ],
+      "hit": null,
+      "partial_hit": null,
+      "reciprocal_rank": null,
+      "has_citations": false,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    },
+    {
+      "id": "q05",
+      "category": "standard",
+      "expected_status": "answered",
+      "actual_status": null,
+      "status_correct": null,
+      "evaluation_error": true,
+      "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 55.363650473s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '55s'}]}}",
+      "retrieved_doc_ids": [
+        "cdc-adult-immunization-notes-2025",
+        "cdc-adult-immunization-schedule-2025",
+        "cdc-adult-immunization-notes-2025",
+        "cdc-adult-immunization-schedule-2025",
+        "cdc-adult-immunization-notes-2025",
+        "cdc-adult-immunization-schedule-2025"
+      ],
+      "expected_doc_ids": [
+        "cdc-adult-immunization-schedule-2025"
+      ],
+      "hit": null,
+      "partial_hit": null,
+      "reciprocal_rank": null,
+      "has_citations": false,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    },
+    {
+      "id": "q06",
+      "category": "standard",
+      "expected_status": "answered",
+      "actual_status": null,
+      "status_correct": null,
+      "evaluation_error": true,
+      "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 54.856339015s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '54s'}]}}",
+      "retrieved_doc_ids": [
+        "cdc-adult-immunization-notes-2025",
+        "cdc-adult-immunization-schedule-2025",
+        "cdc-adult-immunization-schedule-2025",
+        "cdc-adult-immunization-schedule-2025",
+        "cdc-adult-immunization-notes-2025",
+        "cdc-adult-immunization-notes-2025"
+      ],
+      "expected_doc_ids": [
+        "cdc-adult-immunization-schedule-2025"
+      ],
+      "hit": null,
+      "partial_hit": null,
+      "reciprocal_rank": null,
+      "has_citations": false,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    },
+    {
+      "id": "q07",
+      "category": "standard",
+      "expected_status": "answered",
+      "actual_status": null,
+      "status_correct": null,
+      "evaluation_error": true,
+      "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 54.334694572s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '54s'}]}}",
+      "retrieved_doc_ids": [
+        "cdc-adult-immunization-notes-2025",
+        "cdc-adult-immunization-notes-2025",
+        "cdc-adult-immunization-appendix-2025",
+        "cdc-adult-immunization-notes-2025",
+        "cdc-adult-immunization-notes-2025",
+        "cdc-adult-immunization-notes-2025"
+      ],
+      "expected_doc_ids": [
+        "cdc-adult-immunization-notes-2025"
+      ],
+      "hit": null,
+      "partial_hit": null,
+      "reciprocal_rank": null,
+      "has_citations": false,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    },
+    {
+      "id": "q08",
+      "category": "standard",
+      "expected_status": "answered",
+      "actual_status": null,
+      "status_correct": null,
+      "evaluation_error": true,
+      "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 53.812458796s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '53s'}]}}",
+      "retrieved_doc_ids": [
+        "nih-hiv-initial-regimens",
+        "nih-hiv-initial-regimens",
+        "nih-hiv-initial-regimens",
+        "nih-hiv-initial-regimens",
+        "nih-hiv-initial-regimens",
+        "nih-hiv-initial-regimens"
+      ],
+      "expected_doc_ids": [
+        "nih-hiv-initial-regimens"
+      ],
+      "hit": null,
+      "partial_hit": null,
+      "reciprocal_rank": null,
+      "has_citations": false,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    },
+    {
+      "id": "q11",
+      "category": "multi_doc_synthesis",
+      "expected_status": "answered",
+      "actual_status": null,
+      "status_correct": null,
+      "evaluation_error": true,
+      "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 53.229691815s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '53s'}]}}",
+      "retrieved_doc_ids": [
+        "cdc-adult-immunization-notes-2025",
+        "cdc-adult-immunization-appendix-2025",
+        "cdc-adult-immunization-schedule-2025",
+        "cdc-adult-immunization-notes-2025",
+        "cdc-adult-immunization-notes-2025",
+        "cdc-adult-immunization-schedule-2025"
+      ],
+      "expected_doc_ids": [
+        "cdc-adult-immunization-schedule-2025",
+        "cdc-adult-immunization-notes-2025"
+      ],
+      "hit": null,
+      "partial_hit": null,
+      "reciprocal_rank": null,
+      "has_citations": false,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    },
+    {
+      "id": "q12",
+      "category": "multi_doc_synthesis",
+      "expected_status": "answered",
+      "actual_status": null,
+      "status_correct": null,
+      "evaluation_error": true,
+      "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 52.649342137s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '52s'}]}}",
+      "retrieved_doc_ids": [
+        "cdc-isolation-precautions",
+        "cdc-standard-precautions",
+        "cdc-core-infection-prevention",
+        "cdc-standard-precautions",
+        "cdc-isolation-precautions",
+        "cdc-isolation-precautions"
+      ],
+      "expected_doc_ids": [
+        "cdc-standard-precautions",
+        "cdc-hand-hygiene"
+      ],
+      "hit": null,
+      "partial_hit": null,
+      "reciprocal_rank": null,
+      "has_citations": false,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    },
+    {
+      "id": "q14",
+      "category": "unanswerable",
+      "expected_status": "unanswerable",
+      "actual_status": null,
+      "status_correct": null,
+      "evaluation_error": true,
+      "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 52.17980353s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '52s'}]}}",
+      "retrieved_doc_ids": [
+        "cms-medicare-preventive-services",
+        "cdc-core-infection-prevention",
+        "cms-medicare-preventive-services",
+        "cms-medicare-preventive-services",
+        "cms-medicare-preventive-services",
+        "cdc-standard-precautions"
+      ],
+      "expected_doc_ids": [],
+      "hit": null,
+      "partial_hit": null,
+      "reciprocal_rank": null,
+      "has_citations": false,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    },
+    {
+      "id": "q15",
+      "category": "unanswerable",
+      "expected_status": "unanswerable",
+      "actual_status": null,
+      "status_correct": null,
+      "evaluation_error": true,
+      "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 51.724133131s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '51s'}]}}",
+      "retrieved_doc_ids": [
+        "cms-medicare-preventive-services",
+        "cms-medicare-preventive-services",
+        "cms-medicare-preventive-services",
+        "cms-medicare-preventive-services",
+        "nih-hiv-initial-regimens",
+        "nih-hiv-initial-regimens"
+      ],
+      "expected_doc_ids": [],
+      "hit": null,
+      "partial_hit": null,
+      "reciprocal_rank": null,
+      "has_citations": false,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    },
+    {
+      "id": "q16",
+      "category": "unanswerable",
+      "expected_status": "unanswerable",
+      "actual_status": "unanswerable",
+      "status_correct": true,
+      "evaluation_error": false,
+      "error": null,
+      "retrieved_doc_ids": [
+        "cms-medicare-preventive-services",
+        "cms-medicare-preventive-services",
+        "cms-medicare-preventive-services",
+        "cms-medicare-preventive-services",
+        "cdc-hand-hygiene",
+        "cms-medicare-preventive-services"
+      ],
+      "expected_doc_ids": [],
+      "hit": true,
+      "partial_hit": true,
+      "reciprocal_rank": null,
+      "has_citations": false,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    },
+    {
+      "id": "q17",
+      "category": "medical_advice_refusal",
+      "expected_status": "refused_medical_advice",
+      "actual_status": null,
+      "status_correct": null,
+      "evaluation_error": true,
+      "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 37.007106605s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.6-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '37s'}]}}",
+      "retrieved_doc_ids": [
+        "dailymed-amoxicillin",
+        "dailymed-amoxicillin",
+        "nih-hiv-initial-regimens",
+        "dailymed-amoxicillin",
+        "nih-hiv-initial-regimens",
+        "medlineplus-common-cold"
+      ],
+      "expected_doc_ids": [],
+      "hit": null,
+      "partial_hit": null,
+      "reciprocal_rank": null,
+      "has_citations": false,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    },
+    {
+      "id": "q18",
+      "category": "medical_advice_refusal",
+      "expected_status": "refused_medical_advice",
+      "actual_status": null,
+      "status_correct": null,
+      "evaluation_error": true,
+      "error": "ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\\nPlease retry in 36.285183755s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.6-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '36s'}]}}",
+      "retrieved_doc_ids": [
+        "dailymed-amoxicillin",
+        "dailymed-amoxicillin",
+        "medlineplus-common-cold",
+        "dailymed-amoxicillin",
+        "cdc-adult-immunization-appendix-2025",
+        "nih-hiv-initial-regimens"
+      ],
+      "expected_doc_ids": [],
+      "hit": null,
+      "partial_hit": null,
+      "reciprocal_rank": null,
+      "has_citations": false,
+      "groundedness_score": null,
+      "correctness_score": null,
+      "judge_notes": null
+    }
+  ]
+}
