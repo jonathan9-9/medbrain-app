@@ -1,10 +1,14 @@
 from __future__ import annotations
 
+import logging
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from ragcore.config import get_settings
 
 from app.routers import chat, health
+
+logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
 
 settings = get_settings()
 

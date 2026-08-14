@@ -7,13 +7,25 @@ makes the app configurable per-deployment without code changes.
 from __future__ import annotations
 
 from functools import lru_cache
+from pathlib import Path
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+# Repository root:
+# /Users/jc/medbrain-app/
+_REPO_ROOT = Path(__file__).resolve().parents[2]
+
+# The project's .env file lives at:
+# /Users/jc/medbrain-app/backend/.env
+_ENV_FILE = _REPO_ROOT / "backend" / ".env"
+
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file=_ENV_FILE,
+        extra="ignore",
+    )
 
     # --- Secrets (server-side only; never sent to the frontend) ---
     gemini_api_key: str = Field(default="")
@@ -23,11 +35,12 @@ class Settings(BaseSettings):
     pinecone_index_name: str = Field(default="medbrain-index")
     pinecone_cloud: str = Field(default="aws")
     pinecone_region: str = Field(default="us-east-1")
+
     # Use 1536-dimensional embeddings so they match the Pinecone index.
     embedding_dimension: int = Field(default=1536)
 
     # --- Models ---
-    gemini_generation_model: str = Field(default="gemini-2.5-flash")
+    gemini_generation_model: str = Field(default="gemini-3.6-flash")
     gemini_embedding_model: str = Field(default="gemini-embedding-001")
 
     # --- Chunking ---
@@ -36,6 +49,7 @@ class Settings(BaseSettings):
 
     # --- Retrieval ---
     retrieval_top_k: int = Field(default=6)
+
     # Cosine similarity below this on the top hit -> treat as "not covered
     # by the corpus" rather than let the model try to answer anyway.
     min_retrieval_score: float = Field(default=0.55)
@@ -43,7 +57,7 @@ class Settings(BaseSettings):
     # --- Corpus / manifest paths ---
     corpus_dir: str = Field(default="corpus/raw")
     manifest_path: str = Field(
-        default="backend/ragcore/ingestion/.manifest/ingestion_manifest.json"
+        default="backend/ragcore/ingestion/ingestion_manifest.json"
     )
 
     # --- CORS ---

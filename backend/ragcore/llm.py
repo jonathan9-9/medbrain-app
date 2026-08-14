@@ -5,12 +5,15 @@ tests without touching the network).
 
 from __future__ import annotations
 
+import logging
 from collections.abc import Iterator
 
 from google import genai
 from google.genai import types
 
 from ragcore.config import Settings
+
+logger = logging.getLogger(__name__)
 
 
 class GenerationClient:
@@ -24,10 +27,11 @@ class GenerationClient:
             contents=prompt,
             config=types.GenerateContentConfig(
                 temperature=0.1,
-                max_output_tokens=1024,
+                max_output_tokens=4096,
             ),
         )
         for chunk in response:
+            logger.debug("Gemini chunk: %r", chunk)
             if chunk.text:
                 yield chunk.text
 
@@ -37,7 +41,7 @@ class GenerationClient:
             contents=prompt,
             config=types.GenerateContentConfig(
                 temperature=0.1,
-                max_output_tokens=1024,
+                max_output_tokens=4096,
             ),
         )
 

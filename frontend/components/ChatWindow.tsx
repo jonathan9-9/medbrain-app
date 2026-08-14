@@ -159,23 +159,21 @@ export default function ChatWindow() {
       );
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") {
+        setIsLoading(false);
+
+        setMessages((current) =>
+          current.map((message) =>
+            message.id === assistantMessageId
+              ? {
+                  ...message,
+                  content: message.content || "Response interrupted by user.",
+                }
+              : message,
+          ),
+        );
+
         return;
       }
-
-      console.error("Chat request failed:", error);
-
-      setMessages((current) =>
-        current.map((message) =>
-          message.id === assistantMessageId
-            ? {
-                ...message,
-                content: "Unable to complete the request. Please try again.",
-              }
-            : message,
-        ),
-      );
-
-      setIsLoading(false);
     } finally {
       abortControllerRef.current = null;
     }

@@ -1,0 +1,268 @@
+{
+  "/Users/jc/medbrain-app/corpus/raw/cdc_adult_immunization_appendix_2025.html": {
+    "chunk_ids": [
+      "cdc-adult-immunization-appendix-2025-0-9bc8e78662d2",
+      "cdc-adult-immunization-appendix-2025-1-0ccc9d357c44",
+      "cdc-adult-immunization-appendix-2025-2-a7642f15cf59",
+      "cdc-adult-immunization-appendix-2025-3-3633de5447fe",
+      "cdc-adult-immunization-appendix-2025-4-4b7bd98ab3b9",
+      "cdc-adult-immunization-appendix-2025-5-982199c094b2",
+      "cdc-adult-immunization-appendix-2025-6-c148e1ee526b",
+      "cdc-adult-immunization-appendix-2025-7-de39e30aa10e",
+      "cdc-adult-immunization-appendix-2025-8-945cda3c7d31"
+    ],
+    "content_hash": "b8566ae71c684920ab2234ad7ed86f9eb41e51b48ba27441ecc1cee01a9e055d"
+  },
+  "/Users/jc/medbrain-app/corpus/raw/cdc_adult_immunization_notes_2025.html": {
+    "chunk_ids": [
+      "cdc-adult-immunization-notes-2025-0-c1a395172780",
+      "cdc-adult-immunization-notes-2025-1-17ee7d86ea4d",
+      "cdc-adult-immunization-notes-2025-2-0cd3b6e321ad",
+      "cdc-adult-immunization-notes-2025-3-7cd303cda915",
+      "cdc-adult-immunization-notes-2025-4-9ea76d4b3fdc",
+      "cdc-adult-immunization-notes-2025-5-c0fd09d18ca7",
+      "cdc-adult-immunization-notes-2025-6-4875cfebcf45",
+      "cdc-adult-immunization-notes-2025-7-d508bfafcb2c",
+      "cdc-adult-immunization-notes-2025-8-2d2a1ba6a76a",
+      "cdc-adult-immunization-notes-2025-9-bf3026363b23",
+      "cdc-adult-immunization-notes-2025-10-bf407326bec8",
+      "cdc-adult-immunization-notes-2025-11-bd4971f47e46",
+      "cdc-adult-immunization-notes-2025-12-e1d9b1529bff",
+      "cdc-adult-immunization-notes-2025-13-5d980718db10",
+      "cdc-adult-immunization-notes-2025-14-875520d651b4",
+      "cdc-adult-immunization-notes-2025-15-5f43d612af04",
+      "cdc-adult-immunization-notes-2025-16-a3de9eb4ae52",
+      "cdc-adult-immunization-notes-2025-17-a25c2780f047",
+      "cdc-adult-immunization-notes-2025-18-d80b952e1ee9",
+      "cdc-adult-immunization-notes-2025-19-bfaf40d24505",
+      "cdc-adult-immunization-notes-2025-20-42f60835414f",
+      "cdc-adult-immunization-notes-2025-21-16ccb349615c",
+      "cdc-adult-immunization-notes-2025-22-f68e337b0e52",
+      "cdc-adult-immunization-notes-2025-23-2061fac3def9",
+      "cdc-adult-immunization-notes-2025-24-33809ca708d6",
+      "cdc-adult-immunization-notes-2025-25-76d3c84faeb7",
+      "cdc-adult-immunization-notes-2025-26-2c62b99c2659",
+      "cdc-adult-immunization-notes-2025-27-a650673d2d34",
+      "cdc-adult-immunization-notes-2025-28-a5657b6ccb86",
+      "cdc-adult-immunization-notes-2025-29-d9e12a664ae2",
+      "cdc-adult-immunization-notes-2025-30-90da09e90b63",
+      "cdc-adult-immunization-notes-2025-31-4c0c96786d60",
+      "cdc-adult-immunization-notes-2025-32-79444698bcb1",
+      "cdc-adult-immunization-notes-2025-33-925860a592d8",
+      "cdc-adult-immunization-notes-2025-34-ef4639aaaca0",
+      "cdc-adult-immunization-notes-2025-35-ae2e6007ca17",
+      "cdc-adult-immunization-notes-2025-36-88dd1c774b58",
+      "cdc-adult-immunization-notes-2025-37-b4f9d20edc39",
+      "cdc-adult-immunization-notes-2025-38-6e8b1d36e2c5",
+      "cdc-adult-immunization-notes-2025-39-b500920b8989",
+      "cdc-adult-immunization-notes-2025-40-f658931509e7",
+      "cdc-adult-immunization-notes-2025-41-95b8d956156b",
+      "cdc-adult-immunization-notes-2025-42-0739195400b3",
+      "cdc-adult-immunization-notes-2025-43-8c6d9317faae",
+      "cdc-adult-immunization-notes-2025-44-c58d56ddd6d0",
+      "cdc-adult-immunization-notes-2025-45-630c2b96a6ee",
+      "cdc-adult-immunization-notes-2025-46-26556cca503b",
+      "cdc-adult-immunization-notes-2025-47-df100defd507",
+      "cdc-adult-immunization-notes-2025-48-37182729924f",
+      "cdc-adult-immunization-notes-2025-49-3f5a4260b71a",
+      "cdc-adult-immunization-notes-2025-50-725ceaaaf2a9",
+      "cdc-adult-immunization-notes-2025-51-ee44c6cedc66"
+    ],
+    "content_hash": "b049f689f03461d36901c5df854da304cfb1cb94e3d6c1e2c323f22ec80f6793"
+  },
+  "/Users/jc/medbrain-app/corpus/raw/cdc_adult_immunization_schedule_2025.html": {
+    "chunk_ids": [
+      "cdc-adult-immunization-schedule-2025-0-e134bf5fbc68",
+      "cdc-adult-immunization-schedule-2025-1-2b5c804c7e17",
+      "cdc-adult-immunization-schedule-2025-2-5609e792aaa7",
+      "cdc-adult-immunization-schedule-2025-3-ccb7cc77b77d",
+      "cdc-adult-immunization-schedule-2025-4-0946647457a1",
+      "cdc-adult-immunization-schedule-2025-5-0f36fdb0b03b",
+      "cdc-adult-immunization-schedule-2025-6-625ecbb3c965"
+    ],
+    "content_hash": "36289499fcc373768befe3bdf0de8e91e4818e8f9a1c9a91e5d422b42f4f494b"
+  },
+  "/Users/jc/medbrain-app/corpus/raw/cdc_core_infection_prevention.html": {
+    "chunk_ids": [
+      "cdc-core-infection-prevention-0-f6a9bfd36d5a",
+      "cdc-core-infection-prevention-1-c74fc160cb38",
+      "cdc-core-infection-prevention-2-f68206247503",
+      "cdc-core-infection-prevention-3-08f9b79954c8",
+      "cdc-core-infection-prevention-4-e0dccce171ef",
+      "cdc-core-infection-prevention-5-c64187e2d023",
+      "cdc-core-infection-prevention-6-4d6359e052a8",
+      "cdc-core-infection-prevention-7-4f1870f2094a",
+      "cdc-core-infection-prevention-8-e33828f519a1",
+      "cdc-core-infection-prevention-9-fb8fd1089208",
+      "cdc-core-infection-prevention-10-30c3169931a2",
+      "cdc-core-infection-prevention-11-61c70bc7eb22",
+      "cdc-core-infection-prevention-12-4b84c6794172",
+      "cdc-core-infection-prevention-13-88149504aa35"
+    ],
+    "content_hash": "e822e9150406cfdabdf3d1d14e0ee879314d3749fcb4d7eb520fc80a60569fb6"
+  },
+  "/Users/jc/medbrain-app/corpus/raw/cdc_hand_hygiene.html": {
+    "chunk_ids": [
+      "cdc-hand-hygiene-0-9c07d360d193",
+      "cdc-hand-hygiene-1-f6b1a34ef9bb",
+      "cdc-hand-hygiene-2-a89dcf65f6fb",
+      "cdc-hand-hygiene-3-2c5619f1179d",
+      "cdc-hand-hygiene-4-624557722215",
+      "cdc-hand-hygiene-5-81d86fbdc4b2",
+      "cdc-hand-hygiene-6-cd9c6c0a8a0e",
+      "cdc-hand-hygiene-7-0e9f76a9668c",
+      "cdc-hand-hygiene-8-56bd575ce42b",
+      "cdc-hand-hygiene-9-53373a403181",
+      "cdc-hand-hygiene-10-867eb33622ea",
+      "cdc-hand-hygiene-11-b1d901c045ad",
+      "cdc-hand-hygiene-12-ae461f3f7b77",
+      "cdc-hand-hygiene-13-cc3a19daccde",
+      "cdc-hand-hygiene-14-0bd44f09d113",
+      "cdc-hand-hygiene-15-75eb416a1876",
+      "cdc-hand-hygiene-16-d105eb343805",
+      "cdc-hand-hygiene-17-12487adbcd53",
+      "cdc-hand-hygiene-18-f32e32cbdcd6",
+      "cdc-hand-hygiene-19-0260099d9de3"
+    ],
+    "content_hash": "9ec86a5942102cd6716b8d32573ee40a9a5d9e32b42348a24d62c2cb9f9d2c9a"
+  },
+  "/Users/jc/medbrain-app/corpus/raw/cdc_isolation_precautions.html": {
+    "chunk_ids": [
+      "cdc-isolation-precautions-0-839795dc1137",
+      "cdc-isolation-precautions-1-3e347286d433",
+      "cdc-isolation-precautions-2-b183d43e813c",
+      "cdc-isolation-precautions-3-06e59f9d3d93",
+      "cdc-isolation-precautions-4-f2afed2e3a4d",
+      "cdc-isolation-precautions-5-bffcdd34f17a",
+      "cdc-isolation-precautions-6-f9e34bcfc148",
+      "cdc-isolation-precautions-7-f3868b9c18d1",
+      "cdc-isolation-precautions-8-1f263771fe1c",
+      "cdc-isolation-precautions-9-ccc3eab92885",
+      "cdc-isolation-precautions-10-659589be40bc",
+      "cdc-isolation-precautions-11-283d5f4e623c",
+      "cdc-isolation-precautions-12-edc0f767ad3a",
+      "cdc-isolation-precautions-13-f9082b86ad85",
+      "cdc-isolation-precautions-14-08c8ac016c53"
+    ],
+    "content_hash": "3812d27ce42adae9e81dfda049c5ab578f8ac34875e36022b0094be1d1a8f9a7"
+  },
+  "/Users/jc/medbrain-app/corpus/raw/cdc_standard_precautions.html": {
+    "chunk_ids": [
+      "cdc-standard-precautions-0-bdb07db5d76e",
+      "cdc-standard-precautions-1-5bba4f91f075",
+      "cdc-standard-precautions-2-059347f0c3ff",
+      "cdc-standard-precautions-3-eb994567cf54",
+      "cdc-standard-precautions-4-5c35b17441c5",
+      "cdc-standard-precautions-5-392b9c241991",
+      "cdc-standard-precautions-6-2a0adcef95df",
+      "cdc-standard-precautions-7-45e5f7399f68",
+      "cdc-standard-precautions-8-5942c60368f6"
+    ],
+    "content_hash": "2cd59bca7014365000130cd42e8845808b7f10f13be2ea9ece885292c31db7d7"
+  },
+  "/Users/jc/medbrain-app/corpus/raw/cms_medicare_preventive_services.html": {
+    "chunk_ids": [
+      "cms-medicare-preventive-services-0-4da8685e0e5a",
+      "cms-medicare-preventive-services-1-62903b5912bc",
+      "cms-medicare-preventive-services-2-3ad542efa1f3",
+      "cms-medicare-preventive-services-3-37d25c337af9",
+      "cms-medicare-preventive-services-4-5aec1f1b36ca",
+      "cms-medicare-preventive-services-5-5c76c2bb64c7"
+    ],
+    "content_hash": "9da7deab815b2c167f921189c5beb7c11a152f9169e4fd00717d6fc8aa5e52e8"
+  },
+  "/Users/jc/medbrain-app/corpus/raw/dailymed_amoxicillin.html": {
+    "chunk_ids": [
+      "dailymed-amoxicillin-0-c4aab31bff2b",
+      "dailymed-amoxicillin-1-d33e96776080",
+      "dailymed-amoxicillin-2-54d5235b5ec2",
+      "dailymed-amoxicillin-3-069b0a784d79",
+      "dailymed-amoxicillin-4-c321ee3de87f",
+      "dailymed-amoxicillin-5-a240036eaad9",
+      "dailymed-amoxicillin-6-ef3f88a1ed52",
+      "dailymed-amoxicillin-7-f9b47f6a01d7",
+      "dailymed-amoxicillin-8-82d551ff6931",
+      "dailymed-amoxicillin-9-04075a4eba5b",
+      "dailymed-amoxicillin-10-e3a5bc03c45e",
+      "dailymed-amoxicillin-11-07ca688e5368",
+      "dailymed-amoxicillin-12-91c1498d2e87",
+      "dailymed-amoxicillin-13-8d83382a9833",
+      "dailymed-amoxicillin-14-2a033c12320e",
+      "dailymed-amoxicillin-15-5c3a21f4f783",
+      "dailymed-amoxicillin-16-01a161ed14a8"
+    ],
+    "content_hash": "0add070c44917935a1b5db35a4d77ec8e6be8129c7eea46619a1c813a1b78fb8"
+  },
+  "/Users/jc/medbrain-app/corpus/raw/medlineplus_common_cold.html": {
+    "chunk_ids": [
+      "medlineplus-common-cold-0-7d6681452f8c",
+      "medlineplus-common-cold-1-ea134cdbaa82",
+      "medlineplus-common-cold-2-17531309a609",
+      "medlineplus-common-cold-3-82a667323e00",
+      "medlineplus-common-cold-4-3f7c4890ba67",
+      "medlineplus-common-cold-5-7e94d8a4fe83",
+      "medlineplus-common-cold-6-82b9240eca95",
+      "medlineplus-common-cold-7-077664ade107",
+      "medlineplus-common-cold-8-301e7cecb913",
+      "medlineplus-common-cold-9-327a0044024d",
+      "medlineplus-common-cold-10-8b9584c5d66b",
+      "medlineplus-common-cold-11-2e7ea40e998a",
+      "medlineplus-common-cold-12-2b74a4e47a31",
+      "medlineplus-common-cold-13-83bbbe25da72",
+      "medlineplus-common-cold-14-e48a4d613354",
+      "medlineplus-common-cold-15-ba35e24fe290",
+      "medlineplus-common-cold-16-62df87786f5b",
+      "medlineplus-common-cold-17-6ee3202862d5",
+      "medlineplus-common-cold-18-3d76ec9ab081",
+      "medlineplus-common-cold-19-c4ec5e7547e9",
+      "medlineplus-common-cold-20-4bf90667ff0f",
+      "medlineplus-common-cold-21-5df6759db0fe",
+      "medlineplus-common-cold-22-5453bec99ae6",
+      "medlineplus-common-cold-23-269e5526e225",
+      "medlineplus-common-cold-24-f2e75b4f2aad",
+      "medlineplus-common-cold-25-a0abfb8ace9a"
+    ],
+    "content_hash": "34808b6cb417443469819056c95590467d4b14f16f167225084a71c9385ae22a"
+  },
+  "/Users/jc/medbrain-app/corpus/raw/nih_hiv_initial_regimens.html": {
+    "chunk_ids": [
+      "nih-hiv-initial-regimens-0-a592ccd2cf8d",
+      "nih-hiv-initial-regimens-1-2e8d4f008c05",
+      "nih-hiv-initial-regimens-2-3e0314b80b22",
+      "nih-hiv-initial-regimens-3-dda372cbc9dc",
+      "nih-hiv-initial-regimens-4-bdaca6458d8c",
+      "nih-hiv-initial-regimens-5-ba8923cff9bf",
+      "nih-hiv-initial-regimens-6-76eb0ddd6a32",
+      "nih-hiv-initial-regimens-7-5e8237a26535",
+      "nih-hiv-initial-regimens-8-341646ddbec5",
+      "nih-hiv-initial-regimens-9-7eaca3bcbcf1",
+      "nih-hiv-initial-regimens-10-a36399992439",
+      "nih-hiv-initial-regimens-11-61bb23df333d",
+      "nih-hiv-initial-regimens-12-4e2a53ba484d",
+      "nih-hiv-initial-regimens-13-c97ed3b24f2f",
+      "nih-hiv-initial-regimens-14-fbe44c735c4b",
+      "nih-hiv-initial-regimens-15-16f18881bf35",
+      "nih-hiv-initial-regimens-16-92c494551368",
+      "nih-hiv-initial-regimens-17-f4ebe5f33ea4",
+      "nih-hiv-initial-regimens-18-7b7e571a03d5",
+      "nih-hiv-initial-regimens-19-375d59ddfe47",
+      "nih-hiv-initial-regimens-20-ea683c106206",
+      "nih-hiv-initial-regimens-21-3bfdea2adbf3",
+      "nih-hiv-initial-regimens-22-1cb89c0ff7de"
+    ],
+    "content_hash": "8ab18b5817dba405adf397c66b08139623de8d60b8e8368a24d50127c98ffeb8"
+  },
+  "/Users/jc/medbrain-app/corpus/raw/uspstf_breast_cancer_screening.html": {
+    "chunk_ids": [
+      "uspstf-breast-cancer-screening-0-786591b56055",
+      "uspstf-breast-cancer-screening-1-b373172ce6e9"
+    ],
+    "content_hash": "44287065de7f7bf788d19d88390e04a0a1720a0747924e12be10dbed4579676b"
+  },
+  "/Users/jc/medbrain-app/corpus/raw/uspstf_colorectal_cancer_screening.html": {
+    "chunk_ids": [
+      "uspstf-colorectal-cancer-screening-0-c00b78def715"
+    ],
+    "content_hash": "9d9b954d4e1b5d6488c75147e8537fc9da3a7eabe936f3269f8fd303fcaf2a6b"
+  }
+}

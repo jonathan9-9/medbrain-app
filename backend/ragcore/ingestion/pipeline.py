@@ -12,11 +12,11 @@ import logging
 from dataclasses import dataclass
 from pathlib import Path
 
-from ragcore.ingestion.manifest import Manifest, file_hash
-from ragcore.ingestion.sources import html_source_files
 from ragcore.chunking import chunk_document, parse_html_file
 from ragcore.config import Settings
 from ragcore.embeddings import EmbeddingClient
+from ragcore.ingestion.manifest import Manifest, file_hash
+from ragcore.ingestion.sources import html_source_files
 from ragcore.vectorstore import VectorStore
 
 logger = logging.getLogger(__name__)
@@ -84,12 +84,14 @@ def run(
         if existing:
             store.delete_ids(existing.chunk_ids)
 
-        embeddings = [embedder.embed_document(c.metadata.text) for c in chunks]
+        texts = [c.metadata.text for c in chunks]
+        embeddings = embedder.embed_documents(texts)
         upserted = store.upsert_chunks(chunks, embeddings)
         result.chunks_upserted += upserted
         result.files_ingested += 1
 
         manifest.record(str_path, current_hash, [c.id for c in chunks])
+        manifest.save()
 
     # Prune files that used to be in the corpus but no longer are.
     for known_path in manifest.known_paths() - seen_paths:
@@ -99,8 +101,5 @@ def run(
             assert store is not None
             store.delete_ids(entry.chunk_ids)
         result.files_removed += 1
-
-    if not dry_run:
-        manifest.save()
 
     return result
