@@ -1,6 +1,6 @@
 import type { ChatMessageEvent } from "./types";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "/api";
 
 export function parseSseBuffer(buffer: string): {
   events: ChatMessageEvent[];
