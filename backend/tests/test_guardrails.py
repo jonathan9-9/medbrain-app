@@ -29,7 +29,8 @@ def test_obvious_personal_medical_advice_is_refused():
 
     assert (
         is_personal_medical_advice(
-            "I've been feeling dizzy -- should I stop taking my blood pressure medication?",
+            "I've been feeling dizzy -- \
+            should I stop taking my blood pressure medication?",
             settings,
         )
         is True
