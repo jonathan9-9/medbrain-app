@@ -2,6 +2,10 @@
 
 A small retrieval-augmented generation (RAG) application for answering clinical-operations and health-guidance questions from an indexed document corpus. The backend retrieves relevant chunks from Pinecone, uses Gemini to generate a grounded answer, and attaches backend-verified citations to the response. Safety guardrails prevent personal medical-advice questions from reaching normal answer generation and return a deterministic unanswerable response when retrieval confidence is too low.
 
+## Deployment Link
+
+[MedBrain](https://medbrain-app.vercel.app/)
+
 ## Project structure
 
 ```text
