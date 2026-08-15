@@ -19,6 +19,7 @@ app = FastAPI(
         "Not a source of personal medical advice."
     ),
     version="1.0.0",
+    root_path="/api",
 )
 
 app.add_middleware(
